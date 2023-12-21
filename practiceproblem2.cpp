@@ -11,12 +11,12 @@ public:
         this->next = NULL;
     }
 };
-void addNodes(Node *&head, int value)
+void takeNodes(Node *&head, int value)
 {
-    Node *nodeValue = new Node(value);
+    Node *addNode = new Node(value);
     if (head == NULL)
     {
-        head = nodeValue;
+        head = addNode;
         return;
     }
     Node *tmp = head;
@@ -24,7 +24,27 @@ void addNodes(Node *&head, int value)
     {
         tmp = tmp->next;
     }
-    tmp->next = nodeValue;
+    tmp->next = addNode;
+}
+void isDuplicate(Node *head)
+{
+    Node *tmp = head;
+    bool flag = false;
+    // for (Node *i = tmp; i != NULL; i++)
+    // {
+    //     for (Node *j = ; i < count; i++)
+    //     {
+    //         /* code */
+    //     }
+
+    // }
+    // for (Node *i = head; i != NULL; i = i->next)
+    // {
+    //     for (Node *j = i->next; j != NULL; j = j->next)
+    //     {
+    //         // eykhane value 2ti compare korben
+    //     }
+    // }
 }
 int main()
 {
@@ -35,8 +55,16 @@ int main()
         cin >> value;
         if (value == -1)
             break;
-        addNodes(head, value);
+        takeNodes(head, value);
     }
-    
+    if (isDuplicate(head))
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }
