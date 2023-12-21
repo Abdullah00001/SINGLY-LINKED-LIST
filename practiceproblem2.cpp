@@ -30,21 +30,21 @@ void isDuplicate(Node *head)
 {
     Node *tmp = head;
     bool flag = false;
-    // for (Node *i = tmp; i != NULL; i++)
-    // {
-    //     for (Node *j = ; i < count; i++)
-    //     {
-    //         /* code */
-    //     }
-
-    // }
-    // for (Node *i = head; i != NULL; i = i->next)
-    // {
-    //     for (Node *j = i->next; j != NULL; j = j->next)
-    //     {
-    //         // eykhane value 2ti compare korben
-    //     }
-    // }
+    for (Node *i = tmp; i != NULL; i = i->next)
+    {
+        for (Node *j = i->next; j != NULL; j = j->next)
+        {
+            if (i->val == j->val)
+            {
+                flag = true;
+                break;
+            }
+        }
+    }
+    if (flag)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
 }
 int main()
 {
@@ -57,14 +57,6 @@ int main()
             break;
         takeNodes(head, value);
     }
-    if (isDuplicate(head))
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
-
+    isDuplicate(head);
     return 0;
 }
