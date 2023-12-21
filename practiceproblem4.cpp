@@ -26,6 +26,16 @@ void addNodes(Node *&head, int value)
     }
     tmp->next = addnode;
 }
+void prntNodes(Node *head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+}
 void newNode(Node *head, int postn, int valu)
 {
     Node *nwNode = new Node(valu);
@@ -41,6 +51,7 @@ void newNode(Node *head, int postn, int valu)
     }
     nwNode->next = tmp->next;
     tmp->next = nwNode;
+    prntNodes(head);
 }
 void addHead(Node *&head, int headValue)
 {
@@ -48,16 +59,7 @@ void addHead(Node *&head, int headValue)
     newHead->next = head;
     head = newHead;
 }
-void prntNodes(Node *head)
-{
-    Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl;
-}
+
 int main()
 {
     Node *head = NULL;
@@ -83,7 +85,6 @@ int main()
         else
         {
             newNode(head, pos, val);
-            prntNodes(head);
         }
     }
 
