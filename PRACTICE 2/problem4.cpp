@@ -23,41 +23,32 @@ void addNodes(Node *&head, Node *&tail, int value)
     tail->next = addNode;
     tail = addNode;
 }
-int nodesSize(Node *head)
+void maxVal(Node *head)
 {
     Node *tmp = head;
-    int cnt = 0;
+    int max = INT_MIN;
     while (tmp != NULL)
     {
-        cnt++;
+        if (tmp->val > max)
+        {
+            max = tmp->val;
+        }
+
         tmp = tmp->next;
     }
-    return cnt;
+    cout << max << endl;
 }
 int main()
 {
-    Node *head1 = NULL, *tail1 = NULL;
-    Node *head2 = NULL, *tail2 = NULL;
-    int val1, val2;
+    Node *head = NULL, *tail = NULL;
+    int value;
     while (true)
     {
-        cin >> val1;
-        if (val1 == -1)
+        cin >> value;
+        if (value == -1)
             break;
-        addNodes(head1, tail1, val1);
+        addNodes(head, tail, value);
     }
-    while (true)
-    {
-        cin >> val2;
-        if (val2 == -1)
-            break;
-        addNodes(head2, tail2, val2);
-    }
-    int node1 = nodesSize(head1);
-    int node2 = nodesSize(head2);
-    if (node1 == node2)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    maxVal(head);
     return 0;
 }
